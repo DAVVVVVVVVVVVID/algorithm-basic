@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Python API 速记 · 面试复习</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<script>
+(function () {
+  var saved = localStorage.getItem('pyapi-theme');
+  var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.dataset.theme = theme;
+})();
+</script>
+<header class="site-header">
+  <div class="site-header-brand">🐍 Python API 速记</div>
+  <button id="themeToggleBtn" class="theme-toggle-btn" title="切换深色/浅色模式">🌙</button>
+</header>
+<div class="app">
+  <aside class="sidebar">
+    <nav id="nav"></nav>
+    <div class="sidebar-footer">
+      <button id="exportBtn" class="footer-btn">导出显示答案记录</button>
+      <button id="importBtn" class="footer-btn">导入显示答案记录</button>
+      <input type="file" id="importFileInput" accept="application/json" style="display:none" />
+      <button id="resetAllBtn" class="reset-btn">重置全部</button>
+    </div>
+  </aside>
+  <main id="main"></main>
+</div>
+
+<script>const TOPICS = [];</script>
+<script src="data/dict.js"></script>
+<script src="data/list.js"></script>
+<script src="data/set.js"></script>
+<script src="data/str.js"></script>
+<script src="data/tuple.js"></script>
+<script src="data/number.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
