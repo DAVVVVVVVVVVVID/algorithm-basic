@@ -1,0 +1,58 @@
+{
+  "viewCounts": {
+    "dict": {
+      "d14": 1,
+      "d15": 1,
+      "d17": 1,
+      "d18": 1,
+      "d22": 1,
+      "d23": 1,
+      "d24": 1,
+      "d26": 1
+    }
+  },
+  "viewedFlags": {
+    "dict": {
+      "d14": true,
+      "d15": true,
+      "d17": true,
+      "d18": true,
+      "d22": true,
+      "d23": true,
+      "d24": true,
+      "d26": true
+    }
+  },
+  "answers": {
+    "dict:d11": "del dic[\"Tom\"]",
+    "dict:d18": "for key, value in dic.items():",
+    "dict:d17": "for s in dic.values():",
+    "dict:d15": "for key in dic:",
+    "dict:d19": "dic.keys()",
+    "list:l37": "nums.append(6)",
+    "dict:d20": "dic.values()",
+    "dict:d01": "dic = {}   ",
+    "dict:d10": "dic.pop(\"Tom\")",
+    "dict:d25": "defaultdict(list)",
+    "dict:d14": "\"Lucy\" not in dic",
+    "dict:d07": "dic.get(\"Tom\")",
+    "dict:d16": "for key in dic.keys():",
+    "dict:d05": "dic[3] = \"Python\"",
+    "dict:d26": "defaultdict(set)",
+    "dict:d02": "dic = {\"a\":1,\"b\":2}",
+    "dict:d27": "",
+    "dict:d23": "Counter(nums)",
+    "dict:d09": "dic[\"Tom\"] = 100",
+    "dict:d24": "defaultdict(int)",
+    "list:l36": "len(nums)",
+    "dict:d04": "dic[\"Tom\"] = 95",
+    "dict:d22": "dic[x] = dic.get(x,0) + 1",
+    "dict:d12": "dic.clear()",
+    "dict:d13": "\"Tom\" in dic",
+    "dict:d06": "dic[\"To\"]",
+    "dict:d03": "dic = dict()",
+    "dict:d08": "dic.get(\"Lucy\",0)",
+    "dict:d21": "dic.items()",
+    "dict:d37": "len(dict1)"
+  }
+}
