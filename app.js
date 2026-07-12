@@ -575,13 +575,21 @@ document.getElementById('resetAllBtn').addEventListener('click', () => {
   renderNav();
 });
 
+function collectSavedAnswers() {
+  const answers = {};
+  Object.keys(localStorage)
+    .filter(k => k.startsWith(STORAGE_PREFIX) && k !== VIEW_COUNTS_KEY && k !== VIEWED_FLAGS_KEY)
+    .forEach(k => { answers[k.slice(STORAGE_PREFIX.length)] = localStorage.getItem(k); });
+  return answers;
+}
+
 document.getElementById('exportBtn').addEventListener('click', () => {
-  const payload = { viewCounts, viewedFlags };
+  const payload = { viewCounts, viewedFlags, answers: collectSavedAnswers() };
   const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'python-api-review-view-counts.json';
+  a.download = 'python-api-review-progress.json';
   a.click();
   URL.revokeObjectURL(url);
 });
@@ -600,6 +608,12 @@ document.getElementById('importFileInput').addEventListener('change', (e) => {
       if (data && typeof data === 'object' && data.viewCounts) {
         viewCounts = data.viewCounts || {};
         viewedFlags = data.viewedFlags || {};
+        Object.keys(localStorage)
+          .filter(k => k.startsWith(STORAGE_PREFIX) && k !== VIEW_COUNTS_KEY && k !== VIEWED_FLAGS_KEY)
+          .forEach(k => localStorage.removeItem(k));
+        Object.entries(data.answers || {}).forEach(([suffix, value]) => {
+          localStorage.setItem(STORAGE_PREFIX + suffix, value);
+        });
       } else {
         // 兼容旧版本导出的文件（只有次数，没有显示状态）
         viewCounts = (data && typeof data === 'object') ? data : {};
@@ -610,6 +624,7 @@ document.getElementById('importFileInput').addEventListener('change', (e) => {
       if (appView === 'stats') renderStatsPage();
       else if (appView === 'review') renderReviewPage(reviewTopicId);
       else renderCurrentMode();
+      renderNav();
       alert('导入成功');
     } catch (err) {
       alert('导入失败：文件不是有效的 JSON');
