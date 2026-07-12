@@ -10,7 +10,7 @@
 <script>
 (function () {
   var saved = localStorage.getItem('pyapi-theme');
-  var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  var theme = saved || 'light';
   document.documentElement.dataset.theme = theme;
 })();
 </script>
